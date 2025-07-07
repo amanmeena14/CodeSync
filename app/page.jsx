@@ -1,12 +1,18 @@
-import InputFormHomePage from '@/components/InputFormHomePage'
-import React from 'react'
+import Hero from "@/components/Hero"
+import InfoBoxes from "@/components/InfoBoxes"
+import HomeProperties from "@/components/HomeProperties"
+import connectDB from "@/config/database"
 
-const Home = () => {
+const page = async() => {
+  await connectDB();
+  console.log(process.env.MONGODB_URI)
   return (
-    <div>
-      <InputFormHomePage/>
-    </div>
+    <>
+      <Hero/>
+      <InfoBoxes/>
+      <HomeProperties/>
+    </>
   )
 }
 
-export default Home
+export default page
